@@ -1,0 +1,26 @@
+.completado {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.mensaje-vacio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 89.5vh;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.mensaje-vacio ion-icon {
+  font-size: 3rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+ion-button{
+  text-transform: none;
+  font-weight: bold;
+}

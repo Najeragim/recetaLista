@@ -1,17 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Lista de compras</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list *ngIf="listaCompras.length > 0">
+    <ion-item *ngFor="let item of listaCompras; let i = index">
+      <ion-label>
+        <h2 [class.completado]="item.completado">{{ item.nombre }}</h2>
+        <p>{{ item.cantidad }}</p>
+      </ion-label>
+      <ion-checkbox
+        slot="start"
+        [checked]="item.completado"
+        (ionChange)="marcarCompletado(i, $event)"
+      ></ion-checkbox>
+      <ion-button fill="clear" color="danger" (click)="eliminarItem(i)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div *ngIf="listaCompras.length === 0" class="mensaje-vacio">
+    <ion-icon name="cart-outline" size="large"></ion-icon>
+    <p>No hay productos en la lista</p>
+  </div>
+
+  <ion-footer *ngIf="listaCompras.length > 0">
+    <ion-toolbar>
+      <ion-button expand="full" color="danger" (click)="eliminarTodo()"
+        >Eliminar todo</ion-button
+      >
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>

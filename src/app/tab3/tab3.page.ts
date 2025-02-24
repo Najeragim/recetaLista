@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab3Page {
+  usuario = { nombre: 'Juan Pérez', email: 'juan@example.com' };
 
-  constructor() {}
-
+  cerrarSesion() {
+    console.log('Cerrando sesión...');
+  }
 }
+

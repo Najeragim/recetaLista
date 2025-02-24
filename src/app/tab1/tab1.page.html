@@ -1,17 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Recetas</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      debounce="500"
+      placeholder="Buscar receta..."
+      (ionInput)="buscarRecetas($event)"
+    >
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid *ngIf="recetas.length > 0">
+    <ion-row>
+      <ion-col size="6" *ngFor="let receta of recetas">
+        <ion-card (click)="agregarALista(receta)">
+          <img [src]="receta.imagen" alt="{{ receta.nombre }}" />
+          <ion-card-header>
+            <ion-card-title>{{ receta.nombre }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <strong>Ingredientes:</strong>
+            <ul>
+              <li *ngFor="let ingrediente of receta.ingredientes">
+                {{ ingrediente.cantidad }} - {{ ingrediente.nombre }}
+              </li>
+            </ul>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div
+    class="mensaje-vacio"
+    *ngIf="recetas.length === 0 && terminoBusqueda.length > 0"
+  >
+    <ion-icon name="alert-circle-outline" size="large"></ion-icon>
+    <p>No se encontraron recetas para "{{ terminoBusqueda }}"</p>
+  </div>
 </ion-content>
