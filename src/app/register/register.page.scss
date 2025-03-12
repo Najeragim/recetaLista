@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    gap: 10px; /* Espaciado uniforme */
+}
+
+/* Ajusta el tamaño de los campos de entrada */
+.input-field {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: lightgray;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Estilos generales para los botones */
+.primary-btn, .secondary-btn {
+    width: 100%;
+    max-width: 300px; /* Mantener el mismo ancho que los inputs */
+    padding: 12px 20px;
+    border-radius: 30px; /* Hacerlos ovalados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: var(--background, blue); /* Se asegura de usar una sola capa de color */
+    color: var(--color, white);
+}
+
+/* Estilo del botón principal */
+.primary-btn {
+    --background: blue;
+    --color: white;
+}
+
+/* Estilo del botón secundario */
+.secondary-btn {
+    --background: darkblue;
+    --color: white;
+}
+
+/* Efecto hover */
+.primary-btn:hover, .secondary-btn:hover {
+    opacity: 0.8;
+}
