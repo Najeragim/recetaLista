@@ -1,11 +1,19 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    gap: 10px; /* Espaciado uniforme */
+    align-items: center;
+    height: 80vh; /* Full viewport height */
+}
+
+.input-field {
+    width: 80%; /* Adjust width as needed */
+    margin-bottom: 15px;
+}
+
+.primary-btn {
+    width: 80%; /* Adjust width as needed */
+    margin-top: 20px;
 }
 
 /* Ajusta el tamaño de los campos de entrada */

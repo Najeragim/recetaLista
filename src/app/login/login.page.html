@@ -7,12 +7,15 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="container">
     <ion-label>Correo Electrónico</ion-label>
-    <ion-input type="email" class="input-field"></ion-input>
+    <ion-input type="email" class="input-field" [(ngModel)]="email" name="email" required></ion-input> <!-- Bind to email -->
 
     <ion-label>Contraseña</ion-label>
-    <ion-input type="password" class="input-field"></ion-input>
+    <ion-input type="password" class="input-field" [(ngModel)]="password" name="password" required></ion-input> <!-- Bind to password -->
 
-    <ion-button expand="full" class="primary-btn">Iniciar sesión</ion-button>
-    <ion-button expand="full" fill="outline" class="secondary-btn">Registrarse</ion-button>
+    <ion-button expand="full" class="primary-btn" (click)="onLogin()">Iniciar sesión</ion-button> <!-- Call onLogin -->
+    <p>
+      <a href="/register">¿No tienes una cuenta? Regístrate aquí</a> <!-- Ensure routerLink is correct -->
+    </p>
+    <!-- Removed secondary button for registration -->
   </div>
 </ion-content>

@@ -5,17 +5,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="container">
-    <ion-label>Nombre Completo</ion-label>
-    <ion-input type="text" class="input-field"></ion-input>
+  <form (ngSubmit)="onRegister()">
+    <div class="container">
+      <ion-label>Nombre Completo</ion-label>
+      <ion-input type="text" class="input-field" [(ngModel)]="username" name="username" required></ion-input>
 
-    <ion-label>Correo Electrónico</ion-label>
-    <ion-input type="email" class="input-field"></ion-input>
+      <ion-label>Correo Electrónico</ion-label>
+      <ion-input type="email" class="input-field" [(ngModel)]="email" name="email" required></ion-input>
 
-    <ion-label>Contraseña</ion-label>
-    <ion-input type="password" class="input-field"></ion-input>
+      <ion-label>Contraseña</ion-label>
+      <ion-input type="password" class="input-field" [(ngModel)]="password" name="password" required></ion-input>
 
-    <ion-button expand="full" class="primary-btn">Registrarse</ion-button>
-    <ion-button expand="full" fill="outline" class="secondary-btn">Iniciar sesión</ion-button>
-  </div>
+      <ion-button expand="full" type="submit" class="primary-btn">Registrarse</ion-button>
+
+      <ion-text color="primary">{{ registrationMessage }}</ion-text>
+
+      <ion-text>
+        <a href="/login">¿Tienes cuenta?</a>
+      </ion-text>
+    </div>
+  </form>
 </ion-content>

@@ -85,4 +85,3 @@ export class Tab1Page {
     return `${cantidad1} + ${cantidad2}`;
   }
 }
-

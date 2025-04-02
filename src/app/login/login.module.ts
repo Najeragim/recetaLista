@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { LoginPageRoutingModule } from './login-routing.module';
-
-import { LoginPage } from './login.page';
+import { RouterModule } from '@angular/router';
+import { LoginPage } from './login.page'; // Import LoginPage
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    RouterModule.forChild([{ path: '', component: LoginPage }]) // Use LoginPage directly in routing
   ],
-  declarations: [LoginPage]
+  // Remove declarations array since LoginPage is standalone
 })
 export class LoginPageModule {}
